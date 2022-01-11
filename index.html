@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="css/style.css">
+    <title>Isotope</title>
+</head>
+<body>
+    <div class="container">
+        <div class="portfolio-menu">
+          <ul>
+            <li data-filter="*" class="active">All</li>
+            <li data-filter=".seo">SEO</li>
+            <li data-filter=".web">Web Designer</li>
+            <li data-filter=".graphics" >Graphics</li>
+          </ul>
+        </div>
+        <div class="portfolio-items">
+          <div class="item seo">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRhI2xwuVyMX8M6Aby5Fh73aEfnZwahvjRJ_cJF-BkLcsRSYHWPAAcjRzNGuU3OJcJxXQk&usqp=CAU" alt="">
+          </div>
+          <div class="item seo">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR6v0bbx9_BCFT7DK7CgAnpJ3mdLa6CGD5JPS0PjLA8h5RE91FzI1O741DZK0n8b0t9CvU&usqp=CAU" alt="">
+          </div>
+          
+          <div class="item graphics">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS09idT8AppMkLVz8zOk3BRksFPf3Qm-c-vfREBQtuxbi_XGELa9u22uaxAuZliwQrFyUQ&usqp=CAU" alt="">
+          </div>
+          
+          <div class="item web">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQI0FZduSHhRIp8Q7RRULwsjrKM2lFCpOYUqKo2E6pGOQFVZzCd3XD6h6Fvmwdi53KtRF8&usqp=CAU" alt="">
+          </div>
+        </div>
+      </div>
+
+
+      <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.isotope/3.0.6/isotope.pkgd.min.js"></script>
+
+      <script>
+        // Initialize
+        $('.portfolio-items').isotope ({
+          itemSelector: '.item',
+          layoutMode: 'fitRows'
+        });
+
+        // Taken Action on Click
+        $('.portfolio-menu ul li').click(function() {
+          $('.portfolio-menu ul li').removeClass('active');
+          $(this).addClass('active');
+
+          var selector = $(this).attr ('data-filter');
+          $('.portfolio-items').isotope ({
+            filter: selector
+          });
+          return false;
+        });
+      </script>
+</body>
+</html>
